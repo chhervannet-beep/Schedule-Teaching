@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Kantumruy Pro', sans-serif;
+  background-color: #f8fafc;
+}
+
+.font-moul {
+  font-family: 'Moul', serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.drag-over-cell {
+  background-color: #e0e7ff !important;
+  border: 2px dashed #4f46e5 !important;
+}
+
+.master-table th,
+.master-table td {
+  border: 1px solid #475569;
+}
+
+.admin-spines {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.admin-spine {
+  width: 5.5cm;
+  height: 19cm;
+  border: 2px solid #1e293b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5cm 0.3cm;
+  background: white;
+  box-sizing: border-box;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.admin-spine-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  max-height: 12.5cm;
+  overflow: hidden;
+}
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 8mm;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background-color: white !important;
+  }
+
+  .print-container {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .schedule-cell {
+    min-height: 85px !important;
+  }
+
+  .master-page-break {
+    page-break-before: always;
+  }
+
+  .admin-spines {
+    justify-content: flex-start;
+    gap: 5mm;
+  }
+
+  .admin-spine {
+    box-shadow: none;
+  }
+}
